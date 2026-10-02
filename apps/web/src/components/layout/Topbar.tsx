@@ -58,9 +58,11 @@ export const Topbar: React.FC<TopbarProps> = ({
 
   return (
     <header
-      className="mc-glass"
+      className="mc-header-glass"
       style={{
         height: "64px",
+        minHeight: "64px",
+        flexShrink: 0,
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -68,7 +70,8 @@ export const Topbar: React.FC<TopbarProps> = ({
         position: "sticky",
         top: 0,
         zIndex: 40,
-        borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+        width: "100%",
+        boxSizing: "border-box",
       }}
     >
       {/* Left controls: Single Sidebar Toggle & Clean 21st Breadcrumb */}

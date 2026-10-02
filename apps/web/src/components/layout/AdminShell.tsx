@@ -87,7 +87,10 @@ export const AdminShell: React.FC<AdminShellProps> = ({ children, activeHref = "
       style={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
+        height: "100vh",
+        maxHeight: "100vh",
+        width: "100vw",
+        overflow: "hidden",
         backgroundColor: color.background.app,
         color: color.text.primary,
         fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
@@ -103,6 +106,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({ children, activeHref = "
           justifyContent: "space-between",
           alignItems: "center",
           fontSize: "12px",
+          flexShrink: 0,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -130,7 +134,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({ children, activeHref = "
         </div>
       </div>
 
-      <div style={{ display: "flex", flex: 1 }}>
+      <div style={{ display: "flex", flex: 1, minHeight: 0, overflow: "hidden" }}>
         {/* Collapsible Admin Sidebar Container */}
         <div
           style={{
@@ -139,6 +143,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({ children, activeHref = "
             overflow: "hidden",
             transition: "width 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease",
             flexShrink: 0,
+            height: "100%",
           }}
         >
           <aside
@@ -148,7 +153,9 @@ export const AdminShell: React.FC<AdminShellProps> = ({ children, activeHref = "
               borderRight: `1px solid ${color.border.subtle}`,
               display: "flex",
               flexDirection: "column",
-              minHeight: "calc(100vh - 37px)",
+              height: "100%",
+              overflowY: "auto",
+              overflowX: "hidden",
               padding: `${spacing["6"]} ${spacing["4"]}`,
               boxSizing: "border-box",
             }}
@@ -262,21 +269,32 @@ export const AdminShell: React.FC<AdminShellProps> = ({ children, activeHref = "
         </aside>
       </div>
 
-        {/* Admin Main Body */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, transition: "all 0.3s ease" }}>
+        {/* Admin Main Body: Fixed Topbar + Scrollable Main */}
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", height: "100%", minWidth: 0, overflow: "hidden", transition: "all 0.3s ease" }}>
           <Topbar sidebarOpen={sidebarOpen} onToggleSidebar={handleToggle} activeHref={activeHref} />
-          <main
+          <div
             style={{
               flex: 1,
-              padding: spacing["8"],
-              maxWidth: "1380px",
-              width: "100%",
-              margin: "0 auto",
-              boxSizing: "border-box",
+              overflowY: "auto",
+              overflowX: "hidden",
+              minHeight: 0,
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            {children}
-          </main>
+            <main
+              style={{
+                flex: 1,
+                padding: spacing["8"],
+                maxWidth: "1380px",
+                width: "100%",
+                margin: "0 auto",
+                boxSizing: "border-box",
+              }}
+            >
+              {children}
+            </main>
+          </div>
         </div>
       </div>
     </div>

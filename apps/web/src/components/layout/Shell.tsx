@@ -52,7 +52,10 @@ export const Shell: React.FC<ShellProps> = ({ children, activeHref = "/dashboard
     <div
       style={{
         display: "flex",
-        minHeight: "100vh",
+        height: "100vh",
+        maxHeight: "100vh",
+        width: "100vw",
+        overflow: "hidden",
         backgroundColor: color.background.app,
         color: color.text.primary,
         fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
@@ -66,6 +69,7 @@ export const Shell: React.FC<ShellProps> = ({ children, activeHref = "/dashboard
           overflow: "hidden",
           transition: "width 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease",
           flexShrink: 0,
+          height: "100%",
         }}
       >
         <div style={{ width: "260px", height: "100%" }}>
@@ -73,29 +77,42 @@ export const Shell: React.FC<ShellProps> = ({ children, activeHref = "/dashboard
         </div>
       </div>
 
-      {/* Main Content Area */}
+      {/* Main Content Area: Fixed Topbar + Scrollable Main */}
       <div
         style={{
           flex: 1,
           display: "flex",
           flexDirection: "column",
+          height: "100%",
           minWidth: 0,
+          overflow: "hidden",
           transition: "all 0.3s ease",
         }}
       >
         <Topbar sidebarOpen={sidebarOpen} onToggleSidebar={handleToggle} activeHref={activeHref} />
-        <main
+        <div
           style={{
             flex: 1,
-            padding: spacing["8"],
-            maxWidth: "1280px",
-            width: "100%",
-            margin: "0 auto",
-            boxSizing: "border-box",
+            overflowY: "auto",
+            overflowX: "hidden",
+            minHeight: 0,
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          {children}
-        </main>
+          <main
+            style={{
+              flex: 1,
+              padding: spacing["8"],
+              maxWidth: "1280px",
+              width: "100%",
+              margin: "0 auto",
+              boxSizing: "border-box",
+            }}
+          >
+            {children}
+          </main>
+        </div>
       </div>
     </div>
   );

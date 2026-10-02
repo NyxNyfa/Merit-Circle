@@ -121,6 +121,28 @@ html, body {
   border-radius: var(--radius-xl) !important;
 }
 
+.mc-header-glass {
+  background: rgba(16, 20, 32, 0.85) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0 !important;
+}
+
+.mc-sidebar-glass {
+  background: rgba(16, 20, 32, 0.85) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0 !important;
+}
+
 .mc-glass-interactive {
   background: rgba(20, 24, 36, 0.72) !important;
   backdrop-filter: blur(16px) saturate(180%);

@@ -34,15 +34,16 @@ export interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ activeHref = "/dashboard" }) => {
   return (
     <aside
-      className="mc-glass"
+      className="mc-sidebar-glass"
       style={{
         width: "260px",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
         padding: `${spacing["6"]} ${spacing["4"]}`,
-        borderRight: "1px solid rgba(255, 255, 255, 0.08)",
         boxSizing: "border-box",
+        overflowY: "auto",
+        overflowX: "hidden",
       }}
     >
       {/* Brand Header */}

@@ -27,7 +27,7 @@ function LandingPageContent() {
         backgroundColor: "var(--bg-app)",
         color: "var(--text-primary)",
         position: "relative",
-        overflow: "hidden",
+        overflowX: "hidden",
       }}
     >
       {/* 21st.dev Ambient Glowing Orb Atmosphere */}
