@@ -23,6 +23,7 @@ prompt.md
 # Local loop runners & test artifacts
 scripts/*
 !scripts/sync-env.js
+!scripts/stress-test.ts
 packages/contracts/scripts/
 packages/contracts/test/
 apps/backend/test/

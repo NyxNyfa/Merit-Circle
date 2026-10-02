@@ -9,7 +9,6 @@ import {
   ZapIcon,
   StarIcon,
   SettingsIcon,
-  ShieldIcon,
 } from "./Icons";
 
 export interface NavItem {
@@ -143,28 +142,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeHref = "/dashboard" }) => 
         })}
       </nav>
 
-      {/* Admin Quick Switch & Testnet Disclaimer */}
+      {/* Testnet Disclaimer */}
       <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "auto" }}>
-        <a
-          href="/admin"
-          className="mc-glass-interactive"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            padding: "8px 12px",
-            borderRadius: radius.md,
-            textDecoration: "none",
-            fontSize: "12px",
-            fontWeight: 600,
-            color: color.text.muted,
-            border: "1px solid rgba(255, 255, 255, 0.08)",
-          }}
-        >
-          <ShieldIcon size={16} />
-          <span>Admin Control Panel</span>
-        </a>
-
         <div
           style={{
             padding: "12px",

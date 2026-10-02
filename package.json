@@ -17,11 +17,13 @@
     "build": "pnpm -r run --if-present build",
     "sim": "pnpm --filter \"@merit-circle/contracts\" run sim",
     "test:sim": "pnpm --filter \"@merit-circle/contracts\" run test:sim",
+    "stress-test": "tsx scripts/stress-test.ts",
     "start:backend": "pnpm --filter \"@merit-circle/backend\" run start",
     "start:web": "pnpm --filter \"@merit-circle/web\" run start",
     "start": "pnpm run start:backend"
   },
   "devDependencies": {
+    "tsx": "^4.23.15",
     "typescript": "^5.4.5"
   }
 }
